@@ -16,4 +16,4 @@ class NewPostHandler(Handler):
             self.redirect('/')
         else:
             error = 'You must provide both title and content'
-            self.render('new_post.html', title=title, content=content)
+            self.render('new_post.html', title=title, content=content, error=error)
