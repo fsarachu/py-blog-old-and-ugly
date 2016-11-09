@@ -13,7 +13,7 @@ class NewPostHandler(Handler):
         if title and content:
             new_post = Post(title=title, content=content)
             new_post.put()
-            self.redirect('/')
+            self.redirect('/' + str(new_post.key().id()))
         else:
             error = 'You must provide both title and content.'
             self.render('new_post.html', title=title, content=content, error=error)
