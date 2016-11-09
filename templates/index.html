@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>PyBlog!</h1>
+  <h2>Menu:</h2>
+  <ul>
+    <li><a href="/newpost">New Post</a></li>
+  </ul>
+  {% if posts %}
+    <h2>Latest Posts</h2>
+    {% for post in posts %}
+      <div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content }}</p>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endblock %}
