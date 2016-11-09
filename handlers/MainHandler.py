@@ -1,6 +1,6 @@
-import webapp2
+from Handler import Handler
 
 
-class MainHandler(webapp2.RequestHandler):
+class MainHandler(Handler):
     def get(self):
         self.render('index.html')
