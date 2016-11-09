@@ -7,13 +7,13 @@ class NewPostHandler(Handler):
         self.render('new_post.html')
 
     def post(self):
-        title = self.request.get('title')
+        subject = self.request.get('subject')
         content = self.request.get('content')
 
-        if title and content:
-            new_post = Post(title=title, content=content)
+        if subject and content:
+            new_post = Post(subject=subject, content=content)
             new_post.put()
             self.redirect('/' + str(new_post.key().id()))
         else:
-            error = 'You must provide both title and content.'
-            self.render('new_post.html', title=title, content=content, error=error)
+            error = 'You must provide both subject and content.'
+            self.render('new_post.html', subject=subject, content=content, error=error)
