@@ -2,6 +2,7 @@ import jinja2
 import os
 
 import webapp2
+from google.appengine.ext import db
 
 
 class Handler(webapp2.RequestHandler):
@@ -14,3 +15,7 @@ class Handler(webapp2.RequestHandler):
     def render(self, template_name, **kwargs):
         template = self.JINJA_ENV.get_template(template_name)
         self.write(template.render(kwargs))
+
+    @staticmethod
+    def blog_key(name='default'):
+        return db.Key.from_path('blogs', name)
