@@ -1,9 +1,8 @@
-from google.appengine.ext import db
-
 from Handler import Handler
+from entities import Post
 
 
 class MainHandler(Handler):
     def get(self):
-        posts = db.GqlQuery('SELECT * FROM Post ORDER BY created DESC LIMIT 10')
+        posts = Post.all().order('-created')
         self.render('index.html', posts=posts)
