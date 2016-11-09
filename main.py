@@ -4,5 +4,6 @@ from handlers import *
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/newpost', NewPostHandler)
+    ('/newpost', NewPostHandler),
+    ('/(\d+)', ShowPostHandler)
 ], debug=True)
