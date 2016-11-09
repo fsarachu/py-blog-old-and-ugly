@@ -1,3 +1,5 @@
+import time
+
 from Handler import Handler
 from entities import *
 
@@ -15,5 +17,5 @@ class NewPostHandler(Handler):
             new_post.put()
             self.redirect('/')
         else:
-            error = 'You must provide both title and content'
+            error = 'You must provide both title and content.'
             self.render('new_post.html', title=title, content=content, error=error)
